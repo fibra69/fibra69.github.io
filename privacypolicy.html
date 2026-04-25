@@ -2,103 +2,387 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Proapex - Legal</title>
+    <title>Proapex – Legal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy: #060b18;
+            --gold: #c9a84c;
+            --gold-light: #e8cc8a;
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(201,168,76,0.18);
+            --text: #e8e4d8;
+            --muted: rgba(232,228,216,0.55);
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-            background: #f9f9f9;
-            color: #333;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--navy);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        h1, h2 {
-            color: #111;
+
+        /* ── ANIMATED BACKGROUND ── */
+        .bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+
+        /* Aurora blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: drift linear infinite;
+            opacity: 0.35;
         }
-        hr {
+        .blob-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, #1a3a6e 0%, transparent 70%);
+            top: -150px; left: -100px;
+            animation-duration: 28s;
+            animation-delay: 0s;
+        }
+        .blob-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, #8b2fc9 0%, transparent 70%);
+            top: 20%; right: -120px;
+            animation-duration: 22s;
+            animation-delay: -8s;
+            opacity: 0.18;
+        }
+        .blob-3 {
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, #0e2d5a 0%, transparent 70%);
+            bottom: -200px; left: 30%;
+            animation-duration: 34s;
+            animation-delay: -14s;
+            opacity: 0.4;
+        }
+        .blob-4 {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, #c9a84c 0%, transparent 70%);
+            top: 55%; left: 5%;
+            animation-duration: 19s;
+            animation-delay: -4s;
+            opacity: 0.1;
+        }
+
+        @keyframes drift {
+            0%   { transform: translate(0,   0)   scale(1);   }
+            25%  { transform: translate(40px, -30px) scale(1.05); }
+            50%  { transform: translate(20px,  50px) scale(0.95); }
+            75%  { transform: translate(-30px, 20px) scale(1.03); }
+            100% { transform: translate(0,   0)   scale(1);   }
+        }
+
+        /* Floating geometric lines */
+        .geo {
+            position: absolute;
+            border: 1px solid rgba(201,168,76,0.08);
+            border-radius: 50%;
+            animation: spin linear infinite;
+        }
+        .geo-1 { width: 500px; height: 500px; top: -120px; right: -80px; animation-duration: 60s; }
+        .geo-2 { width: 320px; height: 320px; top: -60px; right: -20px; animation-duration: 40s; animation-direction: reverse; border-color: rgba(201,168,76,0.12); }
+        .geo-3 { width: 200px; height: 200px; bottom: 15%; left: 8%; animation-duration: 50s; }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* Grid overlay texture */
+        .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+        }
+
+        /* ── LAYOUT ── */
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 70px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--gold-light);
+        }
+        .logo span {
+            color: var(--gold);
+            font-style: italic;
+        }
+        .header-badge {
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--glass-border);
+            padding: 6px 14px;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+        }
+
+        /* ── SECTION CARD ── */
+        .doc-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 48px 52px;
+            backdrop-filter: blur(12px);
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+        }
+
+        /* Corner glow */
+        .doc-card::after {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ── TYPOGRAPHY ── */
+        .doc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .doc-subtitle {
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 36px;
+            opacity: 0.8;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--gold-light);
+            margin: 32px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 22px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+        ul li {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--muted);
+            padding-left: 20px;
+            position: relative;
+        }
+        ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* ── DIVIDER ── */
+        .doc-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
             margin: 40px 0;
+        }
+
+        /* ── CONTACT BLOCK ── */
+        .contact-block {
+            background: rgba(201,168,76,0.06);
+            border: 1px solid rgba(201,168,76,0.15);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 12px;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .contact-block span {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: 300;
+        }
+        .contact-block a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 400;
+        }
+        .contact-block a:hover { color: var(--gold-light); }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 12px;
+            color: rgba(232,228,216,0.25);
+            letter-spacing: 0.06em;
+        }
+
+        @media (max-width: 600px) {
+            .doc-card { padding: 32px 24px; }
+            .doc-title { font-size: 26px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="bg-canvas">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="geo geo-1"></div>
+    <div class="geo geo-2"></div>
+    <div class="geo geo-3"></div>
+    <div class="grid-overlay"></div>
+</div>
 
-<h1>Proapex - Terms of Service</h1>
+<div class="page">
 
-<p>These Terms of Service govern your use of the Proapex website.</p>
+    <header class="site-header">
+        <div class="logo">Pro<span>apex</span></div>
+        <div class="header-badge">Legal Documents</div>
+    </header>
 
-<h2>1. Eligibility</h2>
-<p>You must be at least 18 years old to use this website.</p>
+    <!-- TERMS OF SERVICE -->
+    <div class="doc-card">
+        <div class="doc-title">Terms of Service</div>
+        <div class="doc-subtitle">Effective — England &amp; Wales</div>
+        <p>These Terms of Service govern your use of the Proapex website. By accessing or using the site, you agree to be bound by the terms below.</p>
 
-<h2>2. Use of Website</h2>
-<p>You agree to use the website legally and not attempt to harm, hack, or misuse it.</p>
+        <h2>1. Eligibility</h2>
+        <p>You must be at least 18 years old to use this website.</p>
 
-<h2>3. Accounts</h2>
-<p>You are responsible for your account and all activities under it.</p>
+        <h2>2. Use of Website</h2>
+        <p>You agree to use the website legally and not attempt to harm, hack, or misuse it in any way.</p>
 
-<h2>4. Intellectual Property</h2>
-<p>All content belongs to Proapex and may not be reused without permission.</p>
+        <h2>3. Accounts</h2>
+        <p>You are responsible for your account and all activities conducted under it.</p>
 
-<h2>5. Payments</h2>
-<p>All payments must be made in advance. Subscriptions renew automatically unless cancelled.</p>
+        <h2>4. Intellectual Property</h2>
+        <p>All content belongs to Proapex and may not be reused without prior written permission.</p>
 
-<h2>6. Liability</h2>
-<p>We are not liable for indirect losses. Nothing excludes liability required by UK law.</p>
+        <h2>5. Payments</h2>
+        <p>All payments must be made in advance. Subscriptions renew automatically unless cancelled before the renewal date.</p>
 
-<h2>7. Governing Law</h2>
-<p>This agreement is governed by the laws of England and Wales.</p>
+        <h2>6. Liability</h2>
+        <p>We are not liable for indirect losses. Nothing in these terms excludes liability where required by UK law.</p>
 
-<h2>8. Contact</h2>
-<p>
-Proapex<br>
-Your Address Here<br>
-your@email.com
-</p>
+        <h2>7. Governing Law</h2>
+        <p>This agreement is governed by the laws of England and Wales.</p>
 
-<hr>
+        <h2>8. Contact</h2>
+        <div class="contact-block">
+            <span>Proapex</span>
+            <span>Warwickshire, United Kingdom</span>
+            <a href="mailto:infoproapex@gmail.com">infoproapex@gmail.com</a>
+        </div>
+    </div>
 
-<h1>Privacy Policy</h1>
+    <!-- PRIVACY POLICY -->
+    <div class="doc-card">
+        <div class="doc-title">Privacy Policy</div>
+        <div class="doc-subtitle">UK GDPR Compliant</div>
+        <p>Proapex respects your privacy and is committed to protecting your personal data in accordance with UK GDPR.</p>
 
-<p>Proapex respects your privacy and complies with UK GDPR.</p>
+        <h2>1. Data We Collect</h2>
+        <ul>
+            <li>Name</li>
+            <li>Email address</li>
+            <li>IP address</li>
+            <li>Website usage data</li>
+        </ul>
 
-<h2>1. Data We Collect</h2>
-<ul>
-<li>Name</li>
-<li>Email</li>
-<li>IP address</li>
-<li>Website usage data</li>
-</ul>
+        <h2>2. How We Use Data</h2>
+        <p>We use your data to provide services, respond to enquiries, and improve the quality of our website.</p>
 
-<h2>2. How We Use Data</h2>
-<p>We use your data to provide services, respond to enquiries, and improve the website.</p>
+        <h2>3. Legal Basis</h2>
+        <p>We process data based on consent, contract fulfilment, legal obligation, and legitimate business interests.</p>
 
-<h2>3. Legal Basis</h2>
-<p>We process data based on consent, contract, legal obligation, and legitimate interests.</p>
+        <h2>4. Sharing Data</h2>
+        <p>We do not sell your data. We only share it when strictly necessary — for example, with hosting providers essential to service delivery.</p>
 
-<h2>4. Sharing Data</h2>
-<p>We do not sell your data. We only share it when necessary (e.g. hosting providers).</p>
+        <h2>5. Your Rights</h2>
+        <p>You have the right to access, correct, or delete your personal data at any time. Contact us to exercise these rights.</p>
 
-<h2>5. Your Rights</h2>
-<p>You have the right to access, correct, or delete your data.</p>
+        <h2>6. Cookies</h2>
+        <p>This website uses cookies. You will be asked for your explicit consent before any non-essential cookies are set.</p>
 
-<h2>6. Cookies</h2>
-<p>This website uses cookies. You will be asked for consent.</p>
+        <h2>7. Contact</h2>
+        <div class="contact-block">
+            <span>Proapex</span>
+            <span>Warwickshire, United Kingdom</span>
+            <a href="mailto:infoproapex@gmail.com">infoproapex@gmail.com</a>
+        </div>
+    </div>
 
-<h2>7. Contact</h2>
-<p>
-Proapex<br>
-Warwickshire<br>
-contact@proapex.co.uk
-</p>
+    <footer class="site-footer">
+        &copy; 2025 Proapex. All rights reserved. &nbsp;·&nbsp; England &amp; Wales
+    </footer>
 
 </div>
 
