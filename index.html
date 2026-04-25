@@ -1,490 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProApex Maintenance – Professional Home &amp; Property Services</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue:#1a3c6e;--blue-mid:#1e4d8c;--blue-bright:#2563b0;
-  --orange:#e85d04;--orange-light:#ff6b1a;
-  --light:#f4f7fb;--white:#ffffff;--text:#2d3748;--muted:#6b7a8d;--border:#dce6f0;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Open Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We Fit & Fix – ProApex Maintenance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #0b1f3a;
+      --navy2:  #112952;
+      --orange: #f47c20;
+      --orange2:#d96810;
+      --gold:   #f9b234;
+      --white:  #ffffff;
+      --offwhite:#f4f6fa;
+      --gray:   #6b7a90;
+      --light:  #e8edf5;
+      --green:  #27ae60;
+      --radius: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* TOPBAR */
-.topbar{background:var(--blue);color:rgba(255,255,255,.85);font-size:13px;padding:9px 0}
-.topbar-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.topbar a{color:rgba(255,255,255,.85);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
-.topbar a:hover{color:#fff}
-.topbar-right{display:flex;gap:24px}
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--offwhite);
+      color: var(--navy);
+    }
 
-/* HEADER */
-header{background:#fff;box-shadow:0 2px 16px rgba(26,60,110,.10);position:sticky;top:0;z-index:100}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-icon{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--blue-bright),var(--blue));display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.logo-icon svg{width:26px;height:26px;fill:#fff}
-.logo-text{display:flex;flex-direction:column;line-height:1.15}
-.logo-text strong{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--blue);letter-spacing:-.3px}
-.logo-text span{font-size:11px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase}
-nav ul{list-style:none;display:flex;gap:6px;align-items:center}
-nav a{font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:600;color:var(--text);text-decoration:none;padding:8px 14px;border-radius:5px;transition:background .2s,color .2s}
-nav a:hover{background:var(--light);color:var(--blue)}
-.nav-cta{background:var(--orange)!important;color:#fff!important;padding:10px 22px!important;border-radius:6px!important}
-.nav-cta:hover{background:var(--orange-light)!important}
+    /* ── NAV ─────────────────── */
+    nav {
+      background: var(--navy);
+      padding: 16px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px #0004;
+    }
+    .logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--white); letter-spacing: 1px; text-decoration: none; }
+    .logo span { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange); color: #fff; font-weight: 700; font-size: .95rem;
+      padding: 10px 22px; border-radius: 8px; text-decoration: none; letter-spacing: .3px;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--orange2); }
 
-/* HERO */
-.hero{position:relative;overflow:hidden;background:var(--blue);min-height:580px;display:flex;align-items:center}
-.hero-bg{position:absolute;inset:0;background:url('/men.jpg') center/cover no-repeat;opacity:.18}
-.hero-pattern{position:absolute;right:0;top:0;bottom:0;width:42%;background:var(--blue-mid);clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%);opacity:.55}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(232,93,4,.15);border:1px solid rgba(232,93,4,.4);color:#ffb380;font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:22px}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:#ff8040;animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(34px,4vw,52px);font-weight:800;line-height:1.12;color:#fff;margin-bottom:18px;letter-spacing:-.5px}
-.hero h1 span{color:#ff8040}
-.hero-sub{font-size:17px;font-weight:300;color:rgba(255,255,255,.70);line-height:1.75;margin-bottom:36px;max-width:480px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-orange{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;padding:14px 28px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:background .2s,transform .15s}
-.btn-orange:hover{background:var(--orange-light);transform:translateY(-1px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.45);color:#fff;padding:13px 26px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;text-decoration:none;transition:border-color .2s,background .2s}
-.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.hero-trust{display:flex;gap:28px;margin-top:40px;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.65);font-size:13px}
+    /* ── HERO VIDEO ──────────────────────────────────── */
+    .hero-video-wrap {
+      position: relative;
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+      /* 16:9 on desktop, slightly taller on mobile */
+      max-height: 80vh;
+    }
+    .hero-video-wrap video {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 80vh;
+    }
+    /* Dark gradient overlay so text reads clearly */
+    .hero-video-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,31,58,0.15) 0%,
+        rgba(11,31,58,0.55) 70%,
+        rgba(11,31,58,0.85) 100%
+      );
+      pointer-events: none;
+    }
+    /* Text block sitting over the video */
+    .hero-over-video {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+      padding: 40px 5% 40px;
+      color: #fff;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange); color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .85rem; font-weight: 700; letter-spacing: 1.5px;
+      padding: 5px 16px; border-radius: 50px;
+      margin-bottom: 14px; text-transform: uppercase;
+    }
+    .hero-over-video h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800; line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .hero-over-video h1 span { color: var(--orange); }
+    .hero-over-video p {
+      font-size: 1.05rem; opacity: .88; max-width: 640px;
+      line-height: 1.6; margin-bottom: 20px;
+    }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff; padding: 6px 14px; border-radius: 50px; font-size: .82rem; font-weight: 600;
+    }
+    .pill.green { background: rgba(39,174,96,.2); border-color: var(--green); color: #6dffa0; }
+    .hero-note {
+      background: rgba(244,124,32,.18);
+      border: 1px solid var(--orange);
+      border-radius: 10px;
+      padding: 12px 18px;
+      max-width: 640px;
+      font-size: .9rem; opacity: .9;
+      line-height: 1.5;
+    }
 
-/* HERO CARD */
-.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:14px;padding:36px 32px;color:#fff}
-.hero-card h3{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;margin-bottom:24px;color:#fff}
-.hc-item{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.10)}
-.hc-item:last-of-type{border-bottom:none}
-.hc-icon{width:44px;height:44px;border-radius:10px;background:rgba(232,93,4,.20);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hc-icon svg{width:22px;height:22px;fill:var(--orange-light)}
-.hc-label{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:2px;text-transform:uppercase;letter-spacing:.6px}
-.hc-val{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff}
-.hc-val a{color:#fff;text-decoration:none}
-.hc-val a:hover{color:#ffb380}
+    /* ── USP STRIP ───────────────────────────────────── */
+    .usp-strip {
+      background: var(--orange);
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 0;
+    }
+    .usp-item {
+      display: flex; align-items: center; gap: 8px;
+      color: #fff; font-weight: 700; font-size: .9rem;
+      padding: 14px 28px;
+      border-right: 1px solid rgba(255,255,255,.3);
+    }
+    .usp-item:last-child { border-right: none; }
+    .usp-item .icon { font-size: 1.2rem; }
 
-/* STATS */
-.statsbar{background:var(--blue-bright);padding:32px 0}
-.stats-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;text-align:center}
-.stat-num{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
-.stat-label{font-size:13px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.8px}
+    /* ── VIDEO SECTION ───────────────────────────────── */
+    .video-section {
+      background: var(--navy);
+      padding: 70px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(244,124,32,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .video-section .section-header { text-align: center; margin-bottom: 44px; }
+    .video-section .section-header .label {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      color: var(--orange); letter-spacing: 2px; font-size: .85rem;
+      text-transform: uppercase; margin-bottom: 10px;
+      display: block;
+    }
+    .video-section .section-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #fff;
+      margin-bottom: 12px;
+    }
+    .video-section .section-header p {
+      color: rgba(255,255,255,.6); font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.6;
+    }
 
-/* ABOUT */
-.about{max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about-text h2{font-family:'Montserrat',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:800;color:var(--blue);line-height:1.2;margin-bottom:18px}
-.section-accent{display:inline-block;width:52px;height:4px;background:var(--orange);border-radius:2px;margin-bottom:20px}
-.about-text p{font-size:16px;line-height:1.8;color:#4a5568;margin-bottom:16px}
-.about-checks{margin-top:24px;display:flex;flex-direction:column;gap:12px}
-.check-row{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--blue)}
-.check-row::before{content:'✓';width:22px;height:22px;border-radius:50%;background:#e8f5ee;color:#2d8a52;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.about-img-wrap{border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,110,.18);position:relative}
-.about-img-wrap img{width:100%;display:block;object-fit:cover;min-height:380px}
-.about-badge{position:absolute;bottom:24px;left:24px;background:var(--orange);color:#fff;padding:14px 20px;border-radius:10px;font-family:'Montserrat',sans-serif}
-.about-badge strong{display:block;font-size:28px;font-weight:800;line-height:1}
-.about-badge span{font-size:12px;opacity:.9;text-transform:uppercase;letter-spacing:.5px}
+    .video-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+    }
 
-/* SERVICES */
-.services-section{background:var(--light);padding:80px 0}
-.section-header{text-align:center;max-width:580px;margin:0 auto 56px;padding:0 32px}
-.section-header .section-accent{margin:0 auto 16px;display:block}
-.section-header h2{font-family:'Montserrat',sans-serif;font-size:clamp(26px,3vw,36px);font-weight:800;color:var(--blue);margin-bottom:14px}
-.section-header p{font-size:16px;color:var(--muted);line-height:1.7}
-.services-grid{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.svc-card{background:#fff;border-radius:12px;border:1px solid var(--border);padding:32px 28px 28px;transition:box-shadow .25s,transform .2s,border-color .2s;cursor:pointer}
-.svc-card:hover{box-shadow:0 12px 40px rgba(26,60,110,.13);transform:translateY(-4px);border-color:var(--blue-bright)}
-.svc-ico{width:58px;height:58px;border-radius:12px;background:var(--light);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:28px;line-height:1}
-.svc-card h3{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--blue);margin-bottom:10px}
-.svc-card p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px}
-.svc-link{font-size:13px;font-weight:700;color:var(--orange);display:flex;align-items:center;gap:5px;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.5px}
+    /* Decorative orange border accent */
+    .video-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--orange), transparent 50%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 2;
+      pointer-events: none;
+    }
 
-/* WHY US */
-.whyus{padding:80px 0;background:var(--blue)}
-.whyus-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.whyus-text h2{font-family:'Montserrat',sans-serif;font-size:clamp(26px,3vw,36px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:18px}
-.whyus-text p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:28px}
-.why-list{display:flex;flex-direction:column;gap:18px}
-.why-item{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:18px 20px}
-.why-num{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--orange-light);line-height:1;flex-shrink:0;width:32px}
-.why-item h4{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
-.why-item p{font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}
-.why-img{border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.why-img img{width:100%;display:block;object-fit:cover;min-height:440px}
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      background: #000;
+    }
 
-/* CONTACT */
-.contact-section{padding:80px 0;background:#fff}
-.contact-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.contact-text h2{font-family:'Montserrat',sans-serif;font-size:clamp(26px,3vw,36px);font-weight:800;color:var(--blue);margin-bottom:18px}
-.contact-text p{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:36px}
-.contact-details{display:flex;flex-direction:column;gap:20px}
-.cd-item{display:flex;gap:16px;align-items:flex-start}
-.cd-icon{width:48px;height:48px;border-radius:10px;background:var(--light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cd-icon svg{width:22px;height:22px;fill:none;stroke:var(--blue-bright);stroke-width:1.8}
-.cd-label{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:4px}
-.cd-val{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--blue)}
-.cd-val a{color:var(--blue);text-decoration:none}
-.cd-val a:hover{color:var(--orange)}
-.contact-form{background:var(--light);border:1px solid var(--border);border-radius:14px;padding:36px 32px}
-.contact-form h3{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700;color:var(--blue);margin-bottom:24px}
-.form-row{margin-bottom:18px}
-.form-row label{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.form-row input,.form-row textarea,.form-row select{width:100%;padding:11px 15px;border:1.5px solid var(--border);border-radius:7px;font-family:'Open Sans',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;transition:border-color .2s}
-.form-row input:focus,.form-row textarea:focus,.form-row select:focus{border-color:var(--blue-bright)}
-.form-row textarea{resize:vertical;min-height:110px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.btn-submit{width:100%;padding:14px;border:none;cursor:pointer;background:var(--orange);color:#fff;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;letter-spacing:.3px;transition:background .2s}
-.btn-submit:hover{background:var(--orange-light)}
+    /* Play/pause overlay button */
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(11,31,58,0.3);
+      border-radius: 18px;
+      opacity: 0;
+      transition: opacity .3s;
+      z-index: 3;
+      cursor: pointer;
+    }
+    .video-wrapper:hover .video-overlay { opacity: 1; }
+    .video-play-btn {
+      width: 68px; height: 68px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(244,124,32,.5);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .video-play-btn:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(244,124,32,.7); }
+    .video-play-btn svg { width: 26px; height: 26px; fill: #fff; margin-left: 4px; }
 
-/* FOOTER */
-footer{background:var(--blue);color:rgba(255,255,255,.7);padding:48px 0 0}
-.footer-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
-.footer-brand .logo{display:inline-flex;margin-bottom:18px}
-.footer-brand .logo-text strong{color:#fff}
-.footer-brand .logo-text span{color:rgba(255,255,255,.5)}
-.footer-brand p{font-size:14px;line-height:1.8;color:rgba(255,255,255,.55);max-width:300px}
-.footer-col h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px}
-.footer-col ul{list-style:none}
-.footer-col ul li{margin-bottom:10px}
-.footer-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:14px;transition:color .2s}
-.footer-col ul li a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.10);padding:20px 32px;max-width:1200px;margin:48px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:10px}
+    /* Bottom caption bar */
+    .video-caption {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 4px;
+    }
+    .video-caption .vc-badge {
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: .8rem; letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px; border-radius: 50px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .video-caption p {
+      color: rgba(255,255,255,.55);
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+    .video-caption p strong { color: rgba(255,255,255,.85); }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-inner,.about,.whyus-inner,.contact-inner,.footer-inner{grid-template-columns:1fr;gap:40px}
-  .hero-card,.why-img,.about-img-wrap{display:none}
-}
-@media(max-width:600px){
-  nav ul{display:none}
-  .form-grid{grid-template-columns:1fr}
-  .stats-inner{grid-template-columns:1fr 1fr}
-  .topbar-right{flex-wrap:wrap;justify-content:center}
-  .footer-bottom{justify-content:center;text-align:center}
-  .hero-inner{padding:60px 20px}
-}
-</style>
+    /* Stats row below video */
+    .video-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+      max-width: 960px;
+      margin: 36px auto 0;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,.04);
+    }
+    .vs-item {
+      flex: 1 1 200px;
+      padding: 24px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .vs-item:last-child { border-right: none; }
+    .vs-item .vs-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.4rem; font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .vs-item .vs-label {
+      font-size: .82rem; color: rgba(255,255,255,.5);
+      text-transform: uppercase; letter-spacing: .8px; font-weight: 600;
+    }
+
+    /* ── SECTION TITLES ──────────────────────────────── */
+    .section { padding: 70px 5%; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-header .label {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      color: var(--orange); letter-spacing: 2px; font-size: .85rem;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .section-header p { color: var(--gray); font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+    /* ── SERVICE CARDS ───────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px #0b1f3a14;
+      transition: transform .25s, box-shadow .25s;
+      display: flex; flex-direction: column;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px #0b1f3a22; }
+    .card-img { width: 100%; height: 210px; object-fit: cover; display: block; }
+    .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .card-tag {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: .75rem; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 8px;
+    }
+    .card-body h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.55rem;
+      font-weight: 800; color: var(--navy); margin-bottom: 10px; line-height: 1.2;
+    }
+    .card-body p { color: var(--gray); font-size: .95rem; line-height: 1.6; flex: 1; }
+    .price-box {
+      margin-top: 18px; background: var(--offwhite); border-radius: 10px;
+      padding: 16px 18px; border-left: 4px solid var(--orange);
+    }
+    .price-label { font-size: .75rem; font-weight: 700; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .price-range { font-family: 'Barlow Condensed', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--navy); line-height: 1; }
+    .price-range .unit { font-size: 1rem; font-weight: 600; color: var(--orange); margin-left: 4px; }
+    .price-note { font-size: .8rem; color: var(--gray); margin-top: 6px; line-height: 1.4; }
+    .includes { margin-top: 14px; list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .includes li { font-size: .88rem; color: var(--navy); display: flex; align-items: flex-start; gap: 7px; line-height: 1.4; }
+    .includes li::before { content: '✓'; color: var(--green); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .card-highlight {
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      color: #fff; font-size: .78rem; font-weight: 700; padding: 5px 14px;
+      display: inline-flex; align-items: center; gap: 5px;
+      border-radius: 50px; margin-top: 14px; width: fit-content;
+    }
+
+    /* ── USP SECTION ──────────────────────────────────── */
+    .usp-section { background: var(--navy); padding: 70px 5%; }
+    .usp-section .section-header .label { color: var(--gold); }
+    .usp-section .section-header h2 { color: #fff; }
+    .usp-section .section-header p { color: rgba(255,255,255,.65); }
+    .usp-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 22px; }
+    .usp-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 28px 24px; transition: background .25s; }
+    .usp-card:hover { background: rgba(255,255,255,.1); }
+    .usp-card .usp-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .usp-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .usp-card p { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+
+    /* ── DISCLAIMER ───────────────────────────────────── */
+    .disclaimer {
+      background: #fff; border-radius: var(--radius); border: 2px solid var(--light);
+      padding: 30px; max-width: 860px; margin: 0 auto 50px; text-align: center;
+    }
+    .disclaimer h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+    .disclaimer p { color: var(--gray); font-size: .95rem; line-height: 1.65; }
+    .disclaimer strong { color: var(--navy); }
+
+    /* ── CTA ──────────────────────────────────────────── */
+    .cta-section { background: linear-gradient(135deg, var(--orange), var(--orange2)); padding: 60px 5%; text-align: center; }
+    .cta-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .cta-section p { color: rgba(255,255,255,.9); font-size: 1.05rem; margin-bottom: 30px; }
+    .cta-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .btn-white { background: #fff; color: var(--orange); font-weight: 800; font-size: 1rem; padding: 14px 34px; border-radius: 10px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px #0004; }
+    .btn-outline { background: transparent; color: #fff; font-weight: 700; font-size: 1rem; padding: 13px 34px; border-radius: 10px; text-decoration: none; border: 2px solid rgba(255,255,255,.7); transition: background .2s; }
+    .btn-outline:hover { background: rgba(255,255,255,.15); }
+
+    .photo-credit { text-align: center; font-size: .75rem; color: var(--gray); padding: 14px 0 4px; }
+    .photo-credit a { color: var(--orange); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .usp-cards { grid-template-columns: 1fr; }
+      .usp-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); }
+      .hero h1 { font-size: 2.2rem; }
+      .vs-item { flex: 1 1 140px; }
+      .video-caption { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
 </head>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "LocalBusiness",
- "name": "ProApex Maintenance",
- "telephone": "07775877746",
- "email": "infoproapex@gmail.com",
- "areaServed": [
-   "Rugby",
-   "Coventry",
-   "Leicester",
-   "Northampton"
- ],
- "address": {
-   "@type": "PostalAddress",
-   "addressLocality": "Rugby",
-   "postalCode": "CV23",
-   "addressCountry": "UK"
- }
-}
-</script>
-
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <span>Professional home maintenance &amp; renovation services across the UK</span>
-    <div class="topbar-right">
-      <a href="tel:07775877746">📞 0777 58 777 46</a>
-      <a href="mailto:contact@proapex.co.uk">✉ infoproapex@gmail.com</a>
+<!-- NAV -->
+<nav>
+  <a href="https://proapex.co.uk" class="logo">Pro<span>Apex</span></a>
+  <a href="tel:07775877746" class="nav-cta">📞 Get a Free Quote</a>
+</nav>
+
+<!-- HERO VIDEO -->
+<div class="hero-video-wrap">
+  <video autoplay muted loop playsinline preload="auto" src="door-install.mp4"></video>
+  <div class="hero-over-video">
+    <div class="hero-badge">✦ Services &amp; Pricing</div>
+    <h1>What We <span>Fit, Fix</span><br>&amp; Finish — For You</h1>
+    <p>One team. Every trade. From fitting a door to tiling a bathroom — we handle the whole job, no need to juggle multiple contractors.</p>
+    
+    <div class="hero-note">
+      ⚠️ <strong>Prices shown are UK labour estimates only — materials are extra.</strong>
+      Final price depends on job complexity, access, and finishes required.
+      All quotes are <strong>FREE with no obligation</strong>.
     </div>
   </div>
 </div>
 
-<!-- HEADER -->
-<header>
-  <div class="nav-inner">
-    <a class="logo" href="#">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-5h2v5h6v-8h3L12 3zm0 2.7L19 12v7h-4v-5H9v5H5v-7l7-6.3z"/></svg>
-      </div>
-      <div class="logo-text">
-        <strong>ProApex</strong>
-        <span>Maintenance</span>
-      </div>
-    </a>
-    <nav>
-      <ul>
-        <a href="rugby.html">Rugby</a>
-        <a href="coventry.html">Coventry</a>
-        <a href="/leicester.html">Leicester</a>
-       
-
-        <li><a href="#">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About </a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="tel:07775877746" class="nav-cta">☎ Call</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-pattern"></div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-tag">Available by appoiment</div>
-      <h1>Your Local<br><span>Maintenance</span><br>&amp; Renovation Experts</h1>
-      <p class="hero-sub">
-        A skilled, reliable team for all your home and property needs. Quality workmanship, fair prices, and results you can count on.
-      </p>
-      <div class="hero-btns">
-        <a href="tel:07775877746" class="btn-orange">📞 Call Now</a>
-        <a href="#services" class="btn-ghost">Our Services</a>
-      </div>
-      <div class="hero-trust">
-        <div class="trust-item">✅ Fully Insured</div>
-        <div class="trust-item">✅ Free Estimates</div>
-        <div class="trust-item">✅ Guaranteed Work</div>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h3>Get in Touch</h3>
-      <div class="hc-item">
-        <div class="hc-icon">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-        </div>
-        <div>
-          <div class="hc-label">Phone</div>
-          <div class="hc-val"><a href="tel:07775877746">0777 58 777 46</a></div>
-        </div>
-      </div>
-      <div class="hc-item">
-        <div class="hc-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </div>
-        <div>
-          <div class="hc-label">Email</div>
-          <div class="hc-val"><a href="mailto:contact@proapex.co.uk">infoproapex@gmail.com</a></div>
-        </div>
-      </div>
-      <div class="hc-item">
-        <div class="hc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#ff8040" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div>
-          <div class="hc-label">Hours</div>
-          <div class="hc-val">Mon – Sun: 7am – 8pm</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS BAR -->
-<div class="statsbar">
-  <div class="stats-inner">
-    <div><div class="stat-num">500+</div><div class="stat-label">Happy Customers</div></div>
-    <div><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
-    <div><div class="stat-num">100%</div><div class="stat-label">Work Guaranteed</div></div>
-    <div><div class="stat-num">24h</div><div class="stat-label">Emergency Response</div></div>
-  </div>
+<!-- USP STRIP -->
+<div class="usp-strip">
+  <div class="usp-item"><span class="icon">🏅</span> 10+ Years Experience</div>
+  <div class="usp-item"><span class="icon">📋</span> Free Estimates</div>
+  <div class="usp-item"><span class="icon">✅</span> Work Guaranteed</div>
+  <div class="usp-item"><span class="icon">🔔</span> 7 Days a Week</div>
+  <div class="usp-item"><span class="icon">💷</span> Fair Transparent Pricing</div>
 </div>
 
-<!-- ABOUT -->
-<section id="about" style="background:#fff">
-  <div class="about">
-    <div class="about-text">
-      <span class="section-accent"></span>
-      <h2>Why Choose ProApex Maintenance?</h2>
-      <p>We're a dedicated team of skilled tradespeople with extensive experience in residential and commercial maintenance and renovation across the UK.</p>
-      <p>From small repairs to full renovations, every job is carried out to the highest standard. We use quality materials and back all our work with a guarantee.</p>
-      <div class="about-checks">
-        <div class="check-row">Fully qualified and vetted tradespeople</div>
-        <div class="check-row">Fully insured for all work carried out</div>
-        <div class="check-row">Free, no-obligation estimates</div>
-        <div class="check-row">Transparent pricing — no hidden costs</div>
-      </div>
-    </div>
-    <div class="about-img-wrap">
-      <img src="/dewalyt.jpg" alt="ProApex team at work">
-      <div class="about-badge">
-        <strong>10+</strong>
-        <span>Years in the Trade</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="services-section">
+<!-- SERVICES GRID -->
+<section class="section">
   <div class="section-header">
-    <span class="section-accent"></span>
-    <h2>Our Services</h2>
-    <p>A complete range of maintenance and renovation services for your home or business</p>
+    <div class="label">Our Services</div>
+    <h2>What We Fit &amp; How Much It Costs</h2>
+    <p>Labour price ranges reflect the UK market. Your quote may vary — we always aim to beat the competition on value.</p>
   </div>
+
   <div class="services-grid">
-    <div class="svc-card">
-      <div class="svc-ico">🔧</div>
-      <h3>General Repairs</h3>
-      <p>Fast and reliable repairs for any issue around the home. Available 7 days a week, including emergency call-outs.</p>
-      
-    </div>
-    <div class="svc-card">
-      <div class="svc-ico">🚿</div>
-      <h3>Plumbing</h3>
-      <p>Taps, toilets, showers, full bathroom fitting and leak repairs. We fix it right, first time.</p>
-     
-    </div>
-    <div class="svc-card">
-      <div class="svc-ico">🎨</div>
-      <h3>Painting &amp; Decorating</h3>
-      <p>Interior and exterior painting, wallpaper hanging, plastering and skimming. Immaculate finishes every time.</p>
-      
-    </div>
-    <div class="svc-card">
-      <div class="svc-ico">🪚</div>
-      <h3>Carpentry</h3>
-      <p>New doors, flooring, bespoke shelving, skirting boards, gates and fencing. Quality timber and materials throughout.</p>
-     
-    </div>
-    <div class="svc-card">
-      <div class="svc-ico">🏡</div>
-      <h3>Full Renovations</h3>
-      <p>From planning through to completion, we manage your entire renovation project. One call covers it all.</p>
-      
-    </div>
-    <div class="svc-card">
-      <div class="svc-ico">🌳</div>
-      <h3>Gardening &amp; Clearance</h3>
-      <p>Lawn mowing, garden maintenance, landscaping and full garden or house clearances. We'll transform your outdoor space.</p>
-      
-    </div>
-  </div>
-</section>
 
-<!-- HOW IT WORKS -->
-<section class="whyus">
-  <div class="whyus-inner">
-    <div class="whyus-text">
-      <span class="section-accent"></span>
-      <h2>How It Works</h2>
-      <p>Our simple, transparent process means you always know exactly what to expect — from first contact through to the finished job.</p>
-      <div class="why-list">
-        <div class="why-item">
-          <div class="why-num">01</div>
-          <div>
-            <h4>Get in Touch</h4>
-            <p>Call or email us. We respond quickly and arrange a visit at a time that suits you.</p>
-          </div>
+    <!-- INTERNAL DOORS -->
+    <div class="service-card">
+      <img class="card-img" src="/internaldoor.png" alt="Internal door fitting" />
+      <div class="card-body">
+        <div class="card-tag">Carpentry</div>
+        <h3>Internal Door Fitting</h3>
+        <p>We supply or fit your door — hung, aligned, and finished perfectly. Unlike most fitters we also <strong>cut and clear foam, plaster around the frame, fill gaps, paint edges,</strong> and leave the area completely done — no mess left for you to sort.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£80 – £180 <span class="unit">per door</span></div>
+          <div class="price-note">Price increases for non-standard sizes, fire doors, glazed doors, or difficult access.</div>
         </div>
-        <div class="why-item">
-          <div class="why-num">02</div>
-          <div>
-            <h4>Free Estimate</h4>
-            <p>We visit the property, assess the work and provide a detailed quote — no charge, no obligation.</p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-num">03</div>
-          <div>
-            <h4>We Deliver</h4>
-            <p>Our team carries out the work to the agreed standard, on time and with minimal disruption. All work guaranteed.</p>
-          </div>
-        </div>
+        <ul class="includes">
+          <li>Door hung, aligned &amp; adjusted</li>
+          <li>Frame and architrave fitted</li>
+          <li>Foam clearance &amp; plaster finish around frame</li>
+          <li>Handle, hinges &amp; latch fitted</li>
+          <li>Edge painting &amp; tidying up included</li>
+        </ul>
+        <span class="card-highlight">⭐ Full finish — no extra trades needed</span>
       </div>
     </div>
-    <div class="why-img">
-      <img src="/skela.jpg" alt="ProApex at work">
-    </div>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="contact-inner">
-    <div class="contact-text">
-      <span class="section-accent"></span>
-      <h2>Get in Touch</h2>
-      <p>Ready to help with any job, big or small. Contact us today for a free estimate or to ask about any of our services.</p>
-      <div class="contact-details">
-        <div class="cd-item">
-          <div class="cd-icon">
-            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="var(--blue-bright)" stroke-width=".3"/></svg>
-          </div>
-          <div>
-            <div class="cd-label">Phone</div>
-            <div class="cd-val"><a href="tel:07775877746">07775 877 746</a></div>
-          </div>
+    <!-- EXTERNAL DOORS -->
+    <div class="service-card">
+      <img class="card-img" src="/usiexterior.PNG" alt="External door fitting" />
+      <div class="card-body">
+        <div class="card-tag">Carpentry</div>
+        <h3>External Door Fitting</h3>
+        <p>Front and back doors fitted with full weatherproofing and security in mind. We handle the <strong>doorbell relocation, seal, foam clear, and finishing plaster</strong> so there's no need to call an electrician or plasterer separately.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£150 – £350 <span class="unit">per door</span></div>
+          <div class="price-note">Composite, UPVC or timber — each affects complexity. Extra charges may apply for frame replacement.</div>
         </div>
-        <div class="cd-item">
-          <div class="cd-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" stroke="var(--blue-bright)" stroke-width=".3"/></svg>
-          </div>
-          <div>
-            <div class="cd-label">Email</div>
-            <div class="cd-val"><a href="mailto:contact@proapex.co.uk">infoproapex@gmail.com</a></div>
-          </div>
-        </div>
-        <div class="cd-item">
-          <div class="cd-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-bright)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <div class="cd-label">Hours</div>
-            <div class="cd-val" style="font-size:15px">Monday – Sunday: 7am – 8pm</div>
-          </div>
-        </div>
+        <ul class="includes">
+          <li>Door, frame &amp; threshold fitted</li>
+          <li>Weatherstrip, seal &amp; draught proofing</li>
+          <li>Doorbell/ring moved if required (18th Ed. qualified)</li>
+          <li>Foam cut &amp; surrounds plastered</li>
+          <li>Multi-point lock &amp; hinges adjusted</li>
+        </ul>
+        <span class="card-highlight">⚡ Electrician + Plasterer in one visit</span>
       </div>
     </div>
-    
+
+    <!-- WINDOWS -->
+    <div class="service-card">
+      <img class="card-img" src="/window.png" alt="Window fitting" />
+      <div class="card-body">
+        <div class="card-tag">Carpentry / Fitting</div>
+        <h3>Window Fitting &amp; Finishing</h3>
+        <p>We fit replacement windows and — importantly — <strong>finish the full reveal:</strong> foam removal, cill fitting, internal plaster, silicone beading and paint. Your window is 100% complete when we leave.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£100 – £250 <span class="unit">per window</span></div>
+          <div class="price-note">Bay windows, roof windows or sash windows cost more due to additional complexity.</div>
+        </div>
+        <ul class="includes">
+          <li>Window fitted, levelled &amp; sealed</li>
+          <li>Internal &amp; external foam clearance</li>
+          <li>Cill fitted &amp; reveals plastered</li>
+          <li>Silicone bead applied inside and out</li>
+          <li>Full painted finish</li>
+        </ul>
+        <span class="card-highlight">🏠 Zero snagging — finished room to room</span>
+      </div>
+    </div>
+
+    <!-- KITCHEN -->
+    <div class="service-card">
+      <img class="card-img" src="/kitchen.jpg" alt="Kitchen fitting" />
+      <div class="card-body">
+        <div class="card-tag">Kitchen</div>
+        <h3>Kitchen Fitting</h3>
+        <p>Full kitchen installation from flat-pack or rigid units. We handle the carpentry, plumbing connections, and basic electrical reconnections in a single visit — saving you from coordinating multiple trades.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£600 – £2,000 <span class="unit">full kitchen</span></div>
+          <div class="price-note">Small kitchen starts lower; large bespoke layouts at the higher end. Free survey required.</div>
+        </div>
+        <ul class="includes">
+          <li>All units fitted, levelled &amp; aligned</li>
+          <li>Worktops cut, joined &amp; sealed</li>
+          <li>Sink, taps &amp; waste connected</li>
+          <li>Appliances positioned &amp; reconnected</li>
+          <li>Splashback tiles or panels fitted</li>
+        </ul>
+        <span class="card-highlight">🔧 Plumbing &amp; electrics included</span>
+      </div>
+    </div>
+
+    <!-- WARDROBES -->
+    <div class="service-card">
+      <img class="card-img" src="/wardob.jpg" alt="Wardrobe fitting" />
+      <div class="card-body">
+        <div class="card-tag">Bedroom / Storage</div>
+        <h3>Wardrobes &amp; Shelving</h3>
+        <p>Flat-pack or bespoke bedroom wardrobes, alcove shelving, and storage solutions. We build, fix firmly to walls, and finish — including touching up paintwork around units.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£100 – £500 <span class="unit">per unit</span></div>
+          <div class="price-note">Alcove bespoke shelving and floor-to-ceiling wardrobes are at the higher end. Shelves alone from £50.</div>
+        </div>
+        <ul class="includes">
+          <li>Assembly and wall-fixing included</li>
+          <li>Alcove shelving cut to fit precisely</li>
+          <li>Sliding or hinged door systems fitted</li>
+          <li>Paint edges and fixings touched up</li>
+          <li>Internal lighting wiring if required</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAINTING -->
+    <div class="service-card">
+      <img class="card-img" src="/PAINT.jpg" alt="Room painting" />
+      <div class="card-body">
+        <div class="card-tag">Painting &amp; Decorating</div>
+        <h3>Room Painting</h3>
+        <p>Professional painting with one big difference. We use <strong>zero-VOC, odour-free paints that are completely safe for allergy sufferers, children, and pets.</strong> Beautiful results with <em>no strong smell, no fumes.</em></p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£200 – £600 <span class="unit">per room</span></div>
+          <div class="price-note">Larger rooms, high ceilings, wallpaper removal, or feature walls affect the price.</div>
+        </div>
+        <ul class="includes">
+          <li>Walls, ceiling &amp; woodwork painted</li>
+          <li>No-smell, no-VOC paint — allergy safe ✅</li>
+          <li>Safe for children &amp; respiratory conditions</li>
+          <li>Prep, filling, sanding all included</li>
+          <li>Clean site left at end of each day</li>
+        </ul>
+        <span class="card-highlight">🌿 Allergy-Safe Paints — our promise</span>
+      </div>
+    </div>
+
+    <!-- TILING -->
+    <div class="service-card">
+      <img class="card-img" src="/tile.jpg" alt="Tiling" />
+      <div class="card-body">
+        <div class="card-tag">Tiling</div>
+        <h3>Wall &amp; Floor Tiling</h3>
+        <p>Bathroom walls, kitchen splashbacks, hallway floors, en-suite — we tile to a professional standard with perfect grout lines and fully waterproofed wet areas.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£20 – £45 <span class="unit">per m²</span></div>
+          <div class="price-note">Wall tiling: £20–£35/m². Floor tiling: £25–£45/m². Large format or herringbone at the higher end.</div>
+        </div>
+        <ul class="includes">
+          <li>Surface prep and board if needed</li>
+          <li>Tiles cut and fitted precisely</li>
+          <li>Wet area fully waterproofed</li>
+          <li>Grouted and silicone sealed</li>
+          <li>Waste &amp; old tiles removed</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PLUMBING -->
+    <div class="service-card">
+      <img class="card-img" src="/plumbing.png" alt="Plumbing" />
+      <div class="card-body">
+        <div class="card-tag">Plumbing</div>
+        <h3>Plumbing &amp; Water Jobs</h3>
+        <p>Leaks, taps, radiators, toilet cisterns, shower trays, basin fitting, and more. We handle the water side of kitchens and bathrooms so everything is done in one visit.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£60 – £150 <span class="unit">per hour / fixed</span></div>
+          <div class="price-note">Simple tap replacement from £60 fixed. Full bathroom suite quoted on survey.</div>
+        </div>
+        <ul class="includes">
+          <li>Tap, basin &amp; toilet fitting</li>
+          <li>Shower fitting and waste plumbing</li>
+          <li>Radiator installation or replacement</li>
+          <li>Leak detection and repair</li>
+          <li>Kitchen sink &amp; waste plumbing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ELECTRICS -->
+    <div class="service-card">
+      <img class="card-img" src="/ele.jpeg" alt="Electrical work" />
+      <div class="card-body">
+        <div class="card-tag">Electrical</div>
+        <h3>Domestic Electrical Work</h3>
+        <p>We are a <strong>qualified domestic electrician</strong> holding the <strong>18th Edition (BS 7671)</strong> certification — we can legally carry out electrical work in your home including moving doorbells, adding sockets, and fitting lights.</p>
+        <div class="price-box">
+          <div class="price-label">Labour Only — UK Average</div>
+          <div class="price-range">£50 – £120 <span class="unit">per hour / job</span></div>
+          <div class="price-note">Socket or switch addition from ~£80. Doorbell relocation from ~£60. Larger jobs quoted on site.</div>
+        </div>
+        <ul class="includes">
+          <li>Additional sockets &amp; switches</li>
+          <li>Doorbell &amp; smart doorbell relocation</li>
+          <li>LED downlights fitting</li>
+          <li>Outdoor sockets &amp; garden lighting</li>
+          <li>Appliance connections (cooker, shower)</li>
+        </ul>
+        <span class="card-highlight">⚡ 18th Edition Certified — legally qualified</span>
+      </div>
+    </div>
+
+  </div>
+
+  <br/><br/>
+  <div class="disclaimer">
+    <h3>📋 About Our Prices</h3>
+    <p>All prices above are <strong>UK labour-only estimates</strong> based on typical market rates as a guide. Your actual quote may differ depending on <strong>job complexity, access, materials, and finishes</strong>. We always provide a <strong>free, honest written quote</strong> before any work begins. <strong>No hidden costs. No nasty surprises.</strong></p>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a class="logo" href="#">
-        <div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 3L2 12h3v8h6v-5h2v5h6v-8h3L12 3z"/></svg></div>
-        <div class="logo-text"><strong>ProApex</strong><span>Maintenance</span></div>
-      </a>
-      <p>Professional home maintenance and renovation services. Quality, reliability and great value across the UK.</p>
+<!-- USP SECTION -->
+<section class="usp-section">
+  <div class="section-header">
+    <div class="label">Why ProApex Is Different</div>
+    <h2>We Don't Just Fit It — We Finish It</h2>
+    <p>Most fitters do the job and leave the mess. We stay until everything looks perfect — and you don't need to call anyone else.</p>
+  </div>
+  <div class="usp-cards">
+    <div class="usp-card">
+      <div class="usp-icon">🚪🔲</div>
+      <h4>Complete Door &amp; Window Finishing</h4>
+      <p>We clear foam, plaster the reveal, paint edges, and tidy up all around. You won't need a plasterer or painter to follow on behind us.</p>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#">General Repairs</a></li>
-        <li><a href="#">Plumbing</a></li>
-        <li><a href="#">Painting &amp; Decorating</a></li>
-        <li><a href="#">Carpentry</a></li>
-        <li><a href="#">Doors & Windows</a></li>
-        <li><a href="#">Kitchens & Bedrooms</a></li>
-        <li><a href="#">Full Renovations</a></li>
-        <li><a href="#">Gardening &amp; Clearance</a></li>
-      </ul>
+    <div class="usp-card">
+      <div class="usp-icon">🔔⚡</div>
+      <h4>Doorbell &amp; Electrics Moved</h4>
+      <p>Fitting a new front door? We relocate your doorbell or Ring doorbell ourselves — saving you calling a separate electrician. 18th Edition certified.</p>
     </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:0777 58 777 46">0777 58 777 46</a></li>
-        <li><a href="mailto:contact@proapex.co.uk">infoproapex@gmail.com</a></li>
-        <li><a href="#">Mon – Sun: 7am – 8pm</a></li>
-        <li><a href="#contact">Free Estimate</a></li>
-      </ul>
+    <div class="usp-card">
+      <div class="usp-icon">🌿👶</div>
+      <h4>Allergy-Safe, No-Smell Paints</h4>
+      <p>We use zero-VOC, odourless paints — completely safe for children, allergy sufferers, asthmatics, and pets. Rooms are liveable immediately after painting.</p>
+    </div>
+    <div class="usp-card">
+      <div class="usp-icon">🔧🚿⚡</div>
+      <h4>Multi-Trade in One Visit</h4>
+      <p>Carpentry, plumbing, tiling, electrical — we can handle them all in one visit. No need to coordinate multiple contractors or take multiple days off work.</p>
+    </div>
+    <div class="usp-card">
+      <div class="usp-icon">🧹</div>
+      <h4>We Cut the Foam &amp; Plaster</h4>
+      <p>Other fitters leave expansion foam poking out and rough edges around frames. We cut it back, fill it, and finish it neatly — proper tradesperson work.</p>
+    </div>
+    <div class="usp-card">
+      <div class="usp-icon">💬</div>
+      <h4>Just Ask What You Need</h4>
+      <p>Not sure if we can help? Just ask. From hanging a picture to a full renovation — we'll tell you honestly whether we can do it, and at what cost.</p>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 ProApex Maintenance. All rights reserved.</span>
-    <a href="/privacypolicy.html">Privacy Policy</a>
-    
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready for a Free Quote?</h2>
+  <p>Call us or send an email — we respond fast, 7 days a week, 7am–8pm.</p>
+  <div class="cta-btns">
+    <a href="tel:07775877746" class="btn-white">📞 07775 877 746</a>
+    <a href="mailto:infoproapex@gmail.com" class="btn-outline">✉ infoproapex@gmail.com</a>
+    <a href="https://eddiedoor.co.uk" class="btn-outline">← Just Doors Instalation </a>
   </div>
-</footer>
+</section>
+
+<p class="photo-credit">
+  Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> — free to use under the
+  <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash Licence</a>.
+</p>
+
+<script>
+  // Click to toggle play/pause
+  const video = document.getElementById('mainVideo');
+  const overlay = document.getElementById('videoOverlay');
+  const playBtn = document.getElementById('playBtn');
+
+  overlay.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+    } else {
+      video.pause();
+      playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px;margin-left:4px"><path d="M8 5v14l11-7z"/></svg>';
+    }
+  });
+
+  // Reset icon when video loops back
+  video.addEventListener('play', () => {
+    playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+  });
+  video.addEventListener('pause', () => {
+    playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px;margin-left:4px"><path d="M8 5v14l11-7z"/></svg>';
+  });
+</script>
 
 </body>
 </html>
