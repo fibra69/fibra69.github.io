@@ -46,21 +46,31 @@
     }
     .nav-cta:hover { background: var(--orange2); }
 
-    /* ── HERO VIDEO ──────────────────────────────────── */
+    /* ── HERO PHOTO ──────────────────────────────────── */
     .hero-video-wrap {
       position: relative;
       width: 100%;
       background: #000;
       overflow: hidden;
-      /* 16:9 on desktop, slightly taller on mobile */
       max-height: 80vh;
+      height: 80vh;
     }
-    .hero-video-wrap video {
+
+    /* Slow Ken Burns zoom on the photo */
+    .hero-video-wrap img {
       width: 100%;
+      height: 100%;
       display: block;
       object-fit: cover;
-      max-height: 80vh;
+      animation: heroZoom 10s ease-in-out infinite alternate;
+      transform-origin: center center;
     }
+
+    @keyframes heroZoom {
+      0%   { transform: scale(1);    }
+      100% { transform: scale(1.10); }
+    }
+
     /* Dark gradient overlay so text reads clearly */
     .hero-video-wrap::after {
       content: '';
@@ -74,7 +84,8 @@
       );
       pointer-events: none;
     }
-    /* Text block sitting over the video */
+
+    /* Text block sitting over the photo */
     .hero-over-video {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -101,13 +112,6 @@
       font-size: 1.05rem; opacity: .88; max-width: 640px;
       line-height: 1.6; margin-bottom: 20px;
     }
-    .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .pill {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.25);
-      color: #fff; padding: 6px 14px; border-radius: 50px; font-size: .82rem; font-weight: 600;
-    }
-    .pill.green { background: rgba(39,174,96,.2); border-color: var(--green); color: #6dffa0; }
     .hero-note {
       background: rgba(244,124,32,.18);
       border: 1px solid var(--orange);
@@ -132,153 +136,6 @@
     }
     .usp-item:last-child { border-right: none; }
     .usp-item .icon { font-size: 1.2rem; }
-
-    /* ── VIDEO SECTION ───────────────────────────────── */
-    .video-section {
-      background: var(--navy);
-      padding: 70px 5%;
-      position: relative;
-      overflow: hidden;
-    }
-    .video-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(244,124,32,0.08) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .video-section .section-header { text-align: center; margin-bottom: 44px; }
-    .video-section .section-header .label {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-      color: var(--orange); letter-spacing: 2px; font-size: .85rem;
-      text-transform: uppercase; margin-bottom: 10px;
-      display: block;
-    }
-    .video-section .section-header h2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #fff;
-      margin-bottom: 12px;
-    }
-    .video-section .section-header p {
-      color: rgba(255,255,255,.6); font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.6;
-    }
-
-    .video-wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
-    }
-
-    /* Decorative orange border accent */
-    .video-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 18px;
-      padding: 2px;
-      background: linear-gradient(135deg, var(--orange), transparent 50%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .video-wrapper video {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-      background: #000;
-    }
-
-    /* Play/pause overlay button */
-    .video-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(11,31,58,0.3);
-      border-radius: 18px;
-      opacity: 0;
-      transition: opacity .3s;
-      z-index: 3;
-      cursor: pointer;
-    }
-    .video-wrapper:hover .video-overlay { opacity: 1; }
-    .video-play-btn {
-      width: 68px; height: 68px;
-      background: var(--orange);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 32px rgba(244,124,32,.5);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .video-play-btn:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(244,124,32,.7); }
-    .video-play-btn svg { width: 26px; height: 26px; fill: #fff; margin-left: 4px; }
-
-    /* Bottom caption bar */
-    .video-caption {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 22px;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 4px;
-    }
-    .video-caption .vc-badge {
-      background: var(--orange);
-      color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700; font-size: .8rem; letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 5px 14px; border-radius: 50px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .video-caption p {
-      color: rgba(255,255,255,.55);
-      font-size: .88rem;
-      line-height: 1.5;
-    }
-    .video-caption p strong { color: rgba(255,255,255,.85); }
-
-    /* Stats row below video */
-    .video-stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0;
-      max-width: 960px;
-      margin: 36px auto 0;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 14px;
-      overflow: hidden;
-      background: rgba(255,255,255,.04);
-    }
-    .vs-item {
-      flex: 1 1 200px;
-      padding: 24px 20px;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,.1);
-    }
-    .vs-item:last-child { border-right: none; }
-    .vs-item .vs-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.4rem; font-weight: 800;
-      color: var(--orange);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .vs-item .vs-label {
-      font-size: .82rem; color: rgba(255,255,255,.5);
-      text-transform: uppercase; letter-spacing: .8px; font-weight: 600;
-    }
 
     /* ── SECTION TITLES ──────────────────────────────── */
     .section { padding: 70px 5%; }
@@ -371,6 +228,16 @@
     .btn-outline { background: transparent; color: #fff; font-weight: 700; font-size: 1rem; padding: 13px 34px; border-radius: 10px; text-decoration: none; border: 2px solid rgba(255,255,255,.7); transition: background .2s; }
     .btn-outline:hover { background: rgba(255,255,255,.15); }
 
+    .hero-note {
+      background: rgba(244,124,32,.18);
+      border: 1px solid var(--orange);
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: .9rem;
+      line-height: 1.5;
+      color: #fff;
+    }
+
     .photo-credit { text-align: center; font-size: .75rem; color: var(--gray); padding: 14px 0 4px; }
     .photo-credit a { color: var(--orange); text-decoration: none; }
 
@@ -378,9 +245,8 @@
       .services-grid { grid-template-columns: 1fr; }
       .usp-cards { grid-template-columns: 1fr; }
       .usp-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); }
-      .hero h1 { font-size: 2.2rem; }
-      .vs-item { flex: 1 1 140px; }
-      .video-caption { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .hero-video-wrap { height: 70vh; max-height: 70vh; }
+      .hero-over-video h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -390,20 +256,17 @@
 <nav>
   <a href="https://proapex.co.uk" class="logo">Pro<span>Apex</span></a>
   <a href="https://wa.me/447775877746?text=Hi%20I%20would%20like%20a%20free%20quote" class="nav-cta" target="_blank">
-      WhatsApp
+    WhatsApp
   </a>
-
 </nav>
 
-<!-- HERO VIDEO -->
+<!-- HERO PHOTO with slow zoom -->
 <div class="hero-video-wrap">
-  <video autoplay muted loop playsinline preload="auto" src="door-install.mp4"></video>
+  <img src="/eu.jpeg" alt="ProApex professional at work" />
   <div class="hero-over-video">
     <div class="hero-badge">✦ Services &amp; Pricing</div>
     <h1>What We <span>Fit, Fix</span><br>&amp; Finish — For You</h1>
     <p>One team. Every trade. From fitting a door to tiling a bathroom — we handle the whole job, no need to juggle multiple contractors.</p>
-    
-    
   </div>
 </div>
 
@@ -677,7 +540,6 @@
       <h4>Just Ask What You Need</h4>
       <p>Not sure if we can help? Just ask. From hanging a picture to a full renovation — we'll tell you honestly whether we can do it, and at what cost.</p>
     </div>
-    
   </div>
 </section>
 
@@ -688,14 +550,14 @@
   <div class="cta-btns">
     <a href="tel:07775877746" class="btn-white">📞 07775 877 746</a>
     <a href="mailto:infoproapex@gmail.com" class="btn-outline">✉ infoproapex@gmail.com</a>
-    <a href="https://eddiedoor.co.uk" class="btn-outline">←  Door Instalation </a>
-    <a href="privacypolicy.html" class="btn-outline">Privacy Policy </a>
+    <a href="https://eddiedoor.co.uk" class="btn-outline">← Door Installation</a>
+    <a href="privacypolicy.html" class="btn-outline">Privacy Policy</a>
     <div class="hero-note">
       ⚠️ <strong>Prices shown are UK labour estimates only — materials are extra.</strong>
       Final price depends on job complexity, access, and finishes required.
       All quotes are <strong>FREE with no obligation</strong>.
     </div>
-    <p>One team. Every trade. From fitting a door to tiling a bathroom — we handle the whole job, no need to juggle multiple contractors.</p>
+    <p style="color:rgba(255,255,255,.9); font-size:.95rem; width:100%; text-align:center;">One team. Every trade. From fitting a door to tiling a bathroom — we handle the whole job, no need to juggle multiple contractors.</p>
   </div>
 </section>
 
@@ -703,31 +565,6 @@
   Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> — free to use under the
   <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash Licence</a>.
 </p>
-
-<script>
-  // Click to toggle play/pause
-  const video = document.getElementById('mainVideo');
-  const overlay = document.getElementById('videoOverlay');
-  const playBtn = document.getElementById('playBtn');
-
-  overlay.addEventListener('click', () => {
-    if (video.paused) {
-      video.play();
-      playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-    } else {
-      video.pause();
-      playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px;margin-left:4px"><path d="M8 5v14l11-7z"/></svg>';
-    }
-  });
-
-  // Reset icon when video loops back
-  video.addEventListener('play', () => {
-    playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-  });
-  video.addEventListener('pause', () => {
-    playBtn.innerHTML = '<svg viewBox="0 0 24 24" style="fill:#fff;width:26px;height:26px;margin-left:4px"><path d="M8 5v14l11-7z"/></svg>';
-  });
-</script>
 
 </body>
 </html>
