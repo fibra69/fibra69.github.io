@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELARO Automotive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:-1;
+}
+
+.content{
+max-width:900px;
+padding:20px;
+}
+
+.logo{
+font-size:4rem;
+font-weight:700;
+letter-spacing:10px;
+margin-bottom:20px;
+color:white;
+}
+
+.subtitle{
+font-size:1.3rem;
+font-weight:300;
+margin-bottom:25px;
+color:#d4d4d4;
+}
+
+.description{
+font-size:1rem;
+line-height:1.8;
+color:#cfcfcf;
+margin-bottom:40px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s ease;
+font-size:1rem;
+}
+
+.btn-primary{
+background:#c8a96b;
+color:black;
+}
+
+.btn-primary:hover{
+background:white;
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+border:2px solid white;
+color:white;
+}
+
+.btn-secondary:hover{
+background:white;
+color:black;
+transform:translateY(-3px);
+}
+
+.services{
+padding:100px 20px;
+background:#111;
+text-align:center;
+}
+
+.services h2{
+font-size:2.5rem;
+margin-bottom:50px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:#1a1a1a;
+padding:40px 30px;
+border-radius:20px;
+transition:0.3s;
+border:1px solid #2c2c2c;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#c8a96b;
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.4rem;
+}
+
+.card p{
+color:#cfcfcf;
+line-height:1.6;
+}
+
+.contact{
+padding:100px 20px;
+text-align:center;
+background:#0b0b0b;
+}
+
+.contact h2{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+.contact p{
+margin-bottom:35px;
+color:#cfcfcf;
+}
+
+footer{
+padding:30px;
+text-align:center;
+background:#000;
+color:#777;
+font-size:0.9rem;
+}
+
+@media(max-width:768px){
+
+.logo{
+font-size:2.5rem;
+letter-spacing:5px;
+}
+
+.subtitle{
+font-size:1rem;
+}
+
+.description{
+font-size:0.95rem;
+}
+
+.btn{
+width:100%;
+max-width:300px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<video autoplay muted loop playsinline>
+<source src="cars.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="content">
+
+<h1 class="logo">VELARO</h1>
+
+<p class="subtitle">
+Luxury Paint & Body Specialists
+</p>
+
+<p class="description">
+Premium automotive paintwork, accident repair, refinishing and bespoke finishes 
+for prestige, performance and everyday vehicles across the UK.
+</p>
+
+<div class="buttons">
+
+<a href="https://wa.me/447555956151" class="btn btn-primary">
+WhatsApp Quote
+</a>
+
+<a href="tel:07555956151" class="btn btn-secondary">
+Call Now
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="services">
+
+<h2>Our Services</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Luxury Paintwork</h3>
+<p>
+High-end paint correction and flawless refinishing for premium vehicles.
+</p>
+</div>
+
+<div class="card">
+<h3>Accident Repair</h3>
+<p>
+Professional bodywork restoration with factory-quality finish.
+</p>
+</div>
+
+<div class="card">
+<h3>Custom Finishes</h3>
+<p>
+Bespoke colours, gloss, satin and custom detailing solutions.
+</p>
+</div>
+
+<div class="card">
+<h3>Mobile Paint Repair</h3>
+<p>
+Convenient mobile repair services delivered at your location.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>Get Your Free Quote</h2>
+
+<p>
+Send photos of your vehicle directly on WhatsApp for a fast estimate.
+</p>
+
+<a href="https://wa.me/447555956151" class="btn btn-primary">
+Message on WhatsApp
+</a>
+
+</section>
+
+<footer>
+© 2026 VELARO Automotive. All Rights Reserved.
+</footer>
+
+</body>
+</html>
